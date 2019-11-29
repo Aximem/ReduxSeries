@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  FavoritesViewController.swift
 //  ReduxSeries
 //
 //  Created by CHARRUEL Maxime on 28/11/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

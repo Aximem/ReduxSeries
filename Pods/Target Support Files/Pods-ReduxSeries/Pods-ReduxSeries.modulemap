@@ -1,0 +1,6 @@
+framework module Pods_ReduxSeries {
+  umbrella header "Pods-ReduxSeries-umbrella.h"
+
+  export *
+  module * { export * }
+}
