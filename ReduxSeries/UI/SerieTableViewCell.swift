@@ -25,4 +25,28 @@ class SerieTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    func configureWith(serie: Serie, favorite: Bool) {
+        self.backdropImage?.imageFromServerURL(urlString: urlTDMBImage + (serie.backdropPath ?? ""))
+        self.titleLabel?.text = serie.name
+        self.favoriteImage.isHidden = !favorite
+    }
+    
+}
+
+extension UIImageView {
+    public func imageFromServerURL(urlString: String) {
+        self.image = nil
+        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+
+            if error != nil {
+                print(error ?? "Error")
+                return
+            }
+            DispatchQueue.main.async(execute: { () -> Void in
+                let image = UIImage(data: data!)
+                self.image = image
+            })
+
+        }).resume()
+    }
 }

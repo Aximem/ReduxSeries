@@ -49,13 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let url = URL(string: urlTMDBSeries) else { return completionHandler(nil, "Url invalid") }
 
         let task = URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard
-                let data = data,
-                let tmdbPageResult = try? JSONDecoder().decode(TMDBPagedResult.self, from: data)
-            else {
-                return completionHandler(nil, "Something went wrong")
+            DispatchQueue.main.async {
+                
+                guard
+                    let data = data,
+                    let tmdbPageResult = try? JSONDecoder().decode(TMDBPagedResult.self, from: data)
+                else {
+                    return completionHandler(nil, "Something went wrong")
+                }
+                completionHandler(tmdbPageResult.results, nil)
+                
             }
-            completionHandler(tmdbPageResult.results, nil)
         }
 
         task.resume()

@@ -7,14 +7,51 @@
 //
 
 import UIKit
+import ReSwift
 
-class FavoritesViewController: UIViewController {
+class FavoritesViewController: UIViewController, StoreSubscriber {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var series: [Serie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.tableView.separatorColor = UIColor.white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        store.subscribe(self)
     }
 
-
+    func newState(state: AppState) {
+        self.series = state.serieState.series
+        self.tableView.reloadData()
+    }
 }
 
+extension FavoritesViewController : UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.series.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = self.tableView.dequeueReusableCell(withIdentifier: serieCellId, for: indexPath) as? SerieTableViewCell {
+            
+            let serie = self.series[indexPath.row]
+            cell.configureWith(serie: serie, favorite: true)
+            
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}

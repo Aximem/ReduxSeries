@@ -45,11 +45,7 @@ extension SeriesViewController : UITableViewDataSource, UITableViewDelegate {
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: serieCellId, for: indexPath) as? SerieTableViewCell {
             
             let serie = self.series[indexPath.row]
-            let url = URL(string: urlTDMBImage + (serie.backdropPath ?? ""))
-            let data = try? Data(contentsOf: url!)
-            
-            cell.backdropImage?.image = UIImage(data: data!)
-            cell.titleLabel?.text = serie.name
+            cell.configureWith(serie: serie, favorite: true)
             
             return cell
         }
