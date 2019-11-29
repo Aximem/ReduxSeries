@@ -1,6 +1,0 @@
-framework module Pods_ReduxSeriesTests {
-  umbrella header "Pods-ReduxSeriesTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
