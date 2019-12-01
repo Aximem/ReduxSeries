@@ -26,7 +26,7 @@ func favoriteReducer(action: Action, state: FavoriteState?) -> FavoriteState {
         case _ as DeleteFavoriteAction:
             state.loading = true
         case let action as DeleteFavoriteSuccessAction:
-            state.favorites = state.favorites.filter{$0 == action.favorite}
+            state.favorites = state.favorites.filter{$0.idSerie != action.favorite.idSerie}
             state.loading = false
         case let action as DeleteFavoriteFailedAction:
             state.errorMessage = action.errorMessage

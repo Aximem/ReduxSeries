@@ -24,6 +24,7 @@ class SerieDetailViewController: UIViewController, StoreSubscriber {
         super.viewDidLoad()
         
         self.backdropImageView?.sd_setImage(with: URL(string: urlTDMBImage + (serie.backdropPath ?? "")), placeholderImage: nil)
+        self.backdropImageView.contentMode = .scaleAspectFill
         self.titleLabel?.text = serie.name
         self.descriptionLabel?.text = serie.overview
         self.activityIndicatorView.isHidden = true
