@@ -6,6 +6,7 @@ target 'ReduxSeries' do
   use_frameworks!
 
   pod 'ReSwift'
+  pod 'ReSwiftThunk'
   
   pod 'SDWebImage'
 
@@ -14,6 +15,7 @@ target 'ReduxSeries' do
   target 'ReduxSeriesTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'ReSwiftThunk/ExpectThunk'
   end
 
   target 'ReduxSeriesUITests' do

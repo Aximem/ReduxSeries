@@ -14,15 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        store.dispatch(GetSeriesStartAction())
-        
-        APIServices.getSeries() { series, errorMessage in
-            if errorMessage != nil {
-                store.dispatch(GetSeriesFailedAction(errorMessage: errorMessage!))
-                return
-            }
-            store.dispatch(GetSeriesSuccessAction(series: series ?? []))
-        }
+        store.dispatch(getSeries)
         
         return true
     }

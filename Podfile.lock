@@ -1,23 +1,35 @@
 PODS:
   - ReSwift (5.0.0)
+  - ReSwiftThunk (1.2.0):
+    - ReSwift (~> 5.0)
+    - ReSwiftThunk/Core (= 1.2.0)
+  - ReSwiftThunk/Core (1.2.0):
+    - ReSwift (~> 5.0)
+  - ReSwiftThunk/ExpectThunk (1.2.0):
+    - ReSwift (~> 5.0)
+    - ReSwiftThunk/Core
   - SDWebImage (5.3.2):
     - SDWebImage/Core (= 5.3.2)
   - SDWebImage/Core (5.3.2)
 
 DEPENDENCIES:
   - ReSwift
+  - ReSwiftThunk
+  - ReSwiftThunk/ExpectThunk
   - SDWebImage
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - ReSwift
   trunk:
+    - ReSwiftThunk
     - SDWebImage
 
 SPEC CHECKSUMS:
   ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
+  ReSwiftThunk: 23c8ea9092d9dc94b72005f19352dbd37fa42533
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
 
-PODFILE CHECKSUM: 0c684273f041396a2e7eae519fda3ee6e03249bc
+PODFILE CHECKSUM: 86a86b7cc5e0346bb9675e78157f318a4d0ae59e
 
 COCOAPODS: 1.8.4

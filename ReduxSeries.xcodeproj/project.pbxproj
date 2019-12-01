@@ -33,6 +33,7 @@
 		85DAF4F526F468170E9A35DD /* Pods_ReduxSeries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A5558AF4A614AF115FE009 /* Pods_ReduxSeries.framework */; };
 		9C4134122392A03A001B45CF /* SerieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4134112392A03A001B45CF /* SerieDetailViewController.swift */; };
 		9C4134152393D74D001B45CF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4134142393D74D001B45CF /* APIService.swift */; };
+		9CC9306523944E7800B184BB /* Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC9306423944E7800B184BB /* Thunk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		73B5F30733B89015DE70BC28 /* Pods-ReduxSeriesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesUITests.release.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesUITests/Pods-ReduxSeriesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9C4134112392A03A001B45CF /* SerieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SerieDetailViewController.swift; path = ReduxSeries/SerieDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		9C4134142393D74D001B45CF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9CC9306423944E7800B184BB /* Thunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
 		9F0F59BE1FD5FAAFAB3CD154 /* Pods-ReduxSeriesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesUITests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesUITests/Pods-ReduxSeriesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF19C6CC62651795AC3F2C34 /* Pods_ReduxSeriesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxSeriesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D3DB5383BE022E586897C0 /* Pods-ReduxSeriesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesTests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesTests/Pods-ReduxSeriesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				4567E9C22390288D00EC160C /* States */,
 				4567E9C12390287F00EC160C /* Actions */,
 				4529B59B239174D1008CA421 /* Redux.swift */,
+				9CC9306423944E7800B184BB /* Thunk.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				4567E980239024FF00EC160C /* Sources */,
 				4567E981239024FF00EC160C /* Frameworks */,
 				4567E982239024FF00EC160C /* Resources */,
+				7807672B1577B79A27A38C9B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -422,6 +426,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7807672B1577B79A27A38C9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReduxSeriesTests/Pods-ReduxSeriesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReduxSeriesTests/Pods-ReduxSeriesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReduxSeriesTests/Pods-ReduxSeriesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8B7252F2A83AE3FCCAE3A351 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -496,6 +517,7 @@
 				4567E9CA23902C3C00EC160C /* SerieReducer.swift in Sources */,
 				4567E9CC23902C4B00EC160C /* FavoriteReducer.swift in Sources */,
 				4567E9D223902C9500EC160C /* SerieAction.swift in Sources */,
+				9CC9306523944E7800B184BB /* Thunk.swift in Sources */,
 				4529B5982391740C008CA421 /* AppReducer.swift in Sources */,
 				4567E9D423902CA200EC160C /* FavoriteAction.swift in Sources */,
 				4567E974239024FE00EC160C /* SeriesViewController.swift in Sources */,
