@@ -14,12 +14,14 @@ let serieCellId = "serieCellId"
 class SeriesViewController: UIViewController, StoreSubscriber {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     var series: [Serie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorColor = UIColor.white
+        self.activityIndicatorView.startAnimating()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,11 +38,17 @@ class SeriesViewController: UIViewController, StoreSubscriber {
     
     func newState(state: AppState) {
         
+        self.activityIndicatorView.isHidden = !state.serieState.loading
+        
         self.series = state.serieState.series
         self.tableView.reloadData()
         
     }
 }
+
+
+
+// MARK: UITableViewDataSource, UITableViewDelegate
 
 extension SeriesViewController : UITableViewDataSource, UITableViewDelegate {
     

@@ -9,23 +9,6 @@
 import UIKit
 import ReSwift
 
-let urlTMDBSeries = "https://api.themoviedb.org/3/tv/popular?api_key=56918c56b08bf630951940f0580ef784"
-let urlTDMBImage = "https://image.tmdb.org/t/p/w500"
-
-struct TMDBPagedResult: Codable {
-    let results: [Serie]
-    let page: Int
-    let totalPages: Int
-    let totalResults: Int
-
-    private enum CodingKeys: String, CodingKey {
-        case results
-        case page
-        case totalPages = "total_pages"
-        case totalResults = "total_results"
-    }
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

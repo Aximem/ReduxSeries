@@ -82,6 +82,11 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="qUN-2q-vhb"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="5Ju-el-28r">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -89,11 +94,14 @@
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="5md-Pv-QIf" secondAttribute="trailing" id="Mfu-DP-3DT"/>
                             <constraint firstItem="5md-Pv-QIf" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="Pzd-gp-Fnc"/>
                             <constraint firstItem="5md-Pv-QIf" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="a2H-Sr-jfj"/>
+                            <constraint firstItem="5Ju-el-28r" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="kue-Pk-BHr"/>
+                            <constraint firstItem="5Ju-el-28r" firstAttribute="centerY" secondItem="PQr-Ze-W5v" secondAttribute="centerY" constant="-2.5" id="lNx-Ma-u6K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" id="GcQ-6f-2yQ"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="5Ju-el-28r" id="1Eg-ci-HwN"/>
                         <outlet property="tableView" destination="5md-Pv-QIf" id="PXS-Ye-PeL"/>
                     </connections>
                 </viewController>

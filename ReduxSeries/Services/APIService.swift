@@ -8,27 +8,48 @@
 
 import Foundation
 
+let urlTMDBSeries = "https://api.themoviedb.org/3/tv/popular?api_key=56918c56b08bf630951940f0580ef784"
+let urlTDMBImage = "https://image.tmdb.org/t/p/w500"
+
+struct TMDBPagedResult: Codable {
+    let results: [Serie]
+    let page: Int
+    let totalPages: Int
+    let totalResults: Int
+
+    private enum CodingKeys: String, CodingKey {
+        case results
+        case page
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+}
+
 class APIServices {
     
     static func getSeries(completionHandler: @escaping ([Serie]?, String?) -> Void) {
 
-        guard let url = URL(string: urlTMDBSeries) else { return completionHandler(nil, "Url invalid") }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+           
+            guard let url = URL(string: urlTMDBSeries) else { return completionHandler(nil, "Url invalid") }
 
-        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
-            DispatchQueue.main.async {
-                
-                guard
-                    let data = data,
-                    let tmdbPageResult = try? JSONDecoder().decode(TMDBPagedResult.self, from: data)
-                else {
-                    return completionHandler(nil, "Something went wrong")
+            let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+                DispatchQueue.main.async {
+                    
+                    guard
+                        let data = data,
+                        let tmdbPageResult = try? JSONDecoder().decode(TMDBPagedResult.self, from: data)
+                    else {
+                        return completionHandler(nil, "Something went wrong")
+                    }
+                    completionHandler(tmdbPageResult.results, nil)
+                    
                 }
-                completionHandler(tmdbPageResult.results, nil)
-                
             }
-        }
 
-        task.resume()
+            task.resume()
+            
+        }
         
     }
     
