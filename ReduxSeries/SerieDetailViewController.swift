@@ -53,7 +53,7 @@ class SerieDetailViewController: UIViewController, StoreSubscriber {
         if self.isFavorite {
             
             // Delete Favorite
-            store.dispatch(DeleteFavoriteAction())
+            store.dispatch(DeleteFavoriteStartAction())
             APIServices.deleteFavorite(favorite: favorite) { favorite, errorMessage in
                 if errorMessage != nil {
                     store.dispatch(DeleteFavoriteFailedAction(errorMessage: errorMessage!))
@@ -65,7 +65,7 @@ class SerieDetailViewController: UIViewController, StoreSubscriber {
         } else {
             
             // Add favorite
-            store.dispatch(PostFavoriteAction())
+            store.dispatch(PostFavoriteStartAction())
             APIServices.addFavorite(favorite: favorite) { favorite, errorMessage in
                 if errorMessage != nil {
                     store.dispatch(PostFavoriteFailedAction(errorMessage: errorMessage!))

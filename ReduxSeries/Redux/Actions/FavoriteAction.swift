@@ -8,7 +8,7 @@
 
 import ReSwift
 
-struct PostFavoriteAction: Action {}
+struct PostFavoriteStartAction: Action {}
 struct PostFavoriteSuccessAction: Action {
     var favorite: Favorite
 }
@@ -16,7 +16,7 @@ struct PostFavoriteFailedAction: Action {
     var errorMessage: String
 }
 
-struct DeleteFavoriteAction: Action {}
+struct DeleteFavoriteStartAction: Action {}
 struct DeleteFavoriteSuccessAction: Action {
     var favorite: Favorite
 }

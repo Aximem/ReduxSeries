@@ -14,7 +14,7 @@ func serieReducer(action: Action, state: SerieState?) -> SerieState {
 
     switch action {
         
-        case _ as GetSeriesAction:
+        case _ as GetSeriesStartAction:
             state.loading = true
         case let action as GetSeriesSuccessAction:
             state.series = action.series

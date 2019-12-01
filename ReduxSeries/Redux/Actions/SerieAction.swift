@@ -8,7 +8,7 @@
 
 import ReSwift
 
-struct GetSeriesAction: Action {}
+struct GetSeriesStartAction: Action {}
 struct GetSeriesSuccessAction: Action {
     var series: [Serie] = []
 }

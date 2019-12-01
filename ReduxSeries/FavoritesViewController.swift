@@ -35,10 +35,10 @@ class FavoritesViewController: UIViewController, StoreSubscriber {
 
     func newState(state: AppState) {
         
-        self.noFavoriteLabel.isHidden = !self.series.isEmpty
-        
         self.series = state.serieState.series.filter { serie in state.favoriteState.favorites.contains(where: { favorite in favorite.idSerie == serie.id }) }
         self.tableView.reloadData()
+        
+        self.noFavoriteLabel.isHidden = !self.series.isEmpty
         
     }
 }
