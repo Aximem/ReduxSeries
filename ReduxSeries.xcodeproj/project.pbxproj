@@ -31,6 +31,8 @@
 		4567E9D423902CA200EC160C /* FavoriteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4567E9D323902CA200EC160C /* FavoriteAction.swift */; };
 		6A9ECC9A9EC6BE2564C755EC /* Pods_ReduxSeriesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF19C6CC62651795AC3F2C34 /* Pods_ReduxSeriesUITests.framework */; };
 		85DAF4F526F468170E9A35DD /* Pods_ReduxSeries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A5558AF4A614AF115FE009 /* Pods_ReduxSeries.framework */; };
+		9C4134122392A03A001B45CF /* SerieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4134112392A03A001B45CF /* SerieDetailViewController.swift */; };
+		9C4134152393D74D001B45CF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4134142393D74D001B45CF /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		68A5558AF4A614AF115FE009 /* Pods_ReduxSeries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxSeries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69102A4EA26B1843A192C775 /* Pods-ReduxSeriesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesTests.release.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesTests/Pods-ReduxSeriesTests.release.xcconfig"; sourceTree = "<group>"; };
 		73B5F30733B89015DE70BC28 /* Pods-ReduxSeriesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesUITests.release.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesUITests/Pods-ReduxSeriesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9C4134112392A03A001B45CF /* SerieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SerieDetailViewController.swift; path = ReduxSeries/SerieDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		9C4134142393D74D001B45CF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9F0F59BE1FD5FAAFAB3CD154 /* Pods-ReduxSeriesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesUITests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesUITests/Pods-ReduxSeriesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF19C6CC62651795AC3F2C34 /* Pods_ReduxSeriesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxSeriesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D3DB5383BE022E586897C0 /* Pods-ReduxSeriesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesTests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesTests/Pods-ReduxSeriesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,12 +154,14 @@
 		4567E96E239024FE00EC160C /* ReduxSeries */ = {
 			isa = PBXGroup;
 			children = (
+				9C4134132393D737001B45CF /* Services */,
 				4529B59E23918BC1008CA421 /* UI */,
 				4567E9C42390298300EC160C /* Models */,
 				4567E9C02390287700EC160C /* Redux */,
 				4567E96F239024FE00EC160C /* AppDelegate.swift */,
 				4567E971239024FE00EC160C /* SceneDelegate.swift */,
 				4567E973239024FE00EC160C /* SeriesViewController.swift */,
+				9C4134112392A03A001B45CF /* SerieDetailViewController.swift */,
 				4567E975239024FE00EC160C /* FavoritesViewController.swift */,
 				4567E977239024FE00EC160C /* Main.storyboard */,
 				4567E97A239024FF00EC160C /* Assets.xcassets */,
@@ -243,6 +249,14 @@
 				73B5F30733B89015DE70BC28 /* Pods-ReduxSeriesUITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9C4134132393D737001B45CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9C4134142393D74D001B45CF /* APIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C48ECFDC511AEDD9EC0415D6 /* Frameworks */ = {
@@ -487,10 +501,12 @@
 				4567E974239024FE00EC160C /* SeriesViewController.swift in Sources */,
 				4567E970239024FE00EC160C /* AppDelegate.swift in Sources */,
 				4529B59A2391742D008CA421 /* AppState.swift in Sources */,
+				9C4134122392A03A001B45CF /* SerieDetailViewController.swift in Sources */,
 				4567E9C8239029ED00EC160C /* Favorite.swift in Sources */,
 				4567E9D023902C7400EC160C /* FavoriteState.swift in Sources */,
 				4567E972239024FE00EC160C /* SceneDelegate.swift in Sources */,
 				4529B5A223918C0D008CA421 /* SerieTableViewCell.swift in Sources */,
+				9C4134152393D74D001B45CF /* APIService.swift in Sources */,
 				4567E9C62390299600EC160C /* Serie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

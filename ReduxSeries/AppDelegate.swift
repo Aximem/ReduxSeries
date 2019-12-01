@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         store.dispatch(GetSeriesAction())
         
-        self.getSeries() { series, errorMessage in
+        APIServices.getSeries() { series, errorMessage in
             if errorMessage != nil {
                 store.dispatch(GetSeriesFailedAction(errorMessage: errorMessage!))
                 return
@@ -42,28 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
-    }
-
-    func getSeries(completionHandler: @escaping ([Serie]?, String?) -> Void) {
-
-        guard let url = URL(string: urlTMDBSeries) else { return completionHandler(nil, "Url invalid") }
-
-        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
-            DispatchQueue.main.async {
-                
-                guard
-                    let data = data,
-                    let tmdbPageResult = try? JSONDecoder().decode(TMDBPagedResult.self, from: data)
-                else {
-                    return completionHandler(nil, "Something went wrong")
-                }
-                completionHandler(tmdbPageResult.results, nil)
-                
-            }
-        }
-
-        task.resume()
-        
     }
     
 }

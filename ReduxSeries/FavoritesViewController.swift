@@ -27,7 +27,7 @@ class FavoritesViewController: UIViewController, StoreSubscriber {
     }
 
     func newState(state: AppState) {
-        self.series = state.serieState.series
+        self.series = state.serieState.series.filter { serie in state.favoriteState.favorites.contains(where: { favorite in favorite.idSerie == serie.id }) }
         self.tableView.reloadData()
     }
 }
@@ -43,7 +43,8 @@ extension FavoritesViewController : UITableViewDataSource, UITableViewDelegate {
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: serieCellId, for: indexPath) as? SerieTableViewCell {
             
             let serie = self.series[indexPath.row]
-            cell.configureWith(serie: serie, favorite: true)
+            let isFavorite = store.state.favoriteState.favorites.contains(where: { favorite in favorite.idSerie == serie.id })
+            cell.configureWith(serie: serie, favorite: isFavorite)
             
             return cell
         }
@@ -51,7 +52,16 @@ extension FavoritesViewController : UITableViewDataSource, UITableViewDelegate {
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let serie = self.series[indexPath.row]
+        let serieDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "serieDetailId") as! SerieDetailViewController
+        serieDetailVC.serie = serie
+        self.navigationController?.pushViewController(serieDetailVC, animated: true)
+        
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 200
     }
 }

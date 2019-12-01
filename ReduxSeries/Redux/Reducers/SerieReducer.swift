@@ -18,10 +18,10 @@ func serieReducer(action: Action, state: SerieState?) -> SerieState {
             state.loading = true
         case let action as GetSeriesSuccessAction:
             state.series = action.series
-            state.loading = true
+            state.loading = false
         case let action as GetSeriesFailedAction:
             state.errorMessage = action.errorMessage
-            state.loading = true
+            state.loading = false
         
         default: break
         

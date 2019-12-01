@@ -10,15 +10,15 @@ import UIKit
 
 class SerieTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var backdropImage: UIImageView!
+    @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var fadeView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backdropImage.contentMode = .scaleAspectFill
-        self.fadeView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.backdropImageView.contentMode = .scaleAspectFill
+        self.fadeView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,9 +26,9 @@ class SerieTableViewCell: UITableViewCell {
     }
 
     func configureWith(serie: Serie, favorite: Bool) {
-        self.backdropImage?.imageFromServerURL(urlString: urlTDMBImage + (serie.backdropPath ?? ""))
+        self.backdropImageView?.imageFromServerURL(urlString: urlTDMBImage + (serie.backdropPath ?? ""))
         self.titleLabel?.text = serie.name
-        self.favoriteImage.isHidden = !favorite
+        self.favoriteImageView.isHidden = !favorite
     }
     
 }
