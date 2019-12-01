@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SerieTableViewCell: UITableViewCell {
 
@@ -26,27 +27,9 @@ class SerieTableViewCell: UITableViewCell {
     }
 
     func configureWith(serie: Serie, favorite: Bool) {
-        self.backdropImageView?.imageFromServerURL(urlString: urlTDMBImage + (serie.backdropPath ?? ""))
+        self.backdropImageView?.sd_setImage(with: URL(string: urlTDMBImage + (serie.backdropPath ?? "")), placeholderImage: nil)
         self.titleLabel?.text = serie.name
         self.favoriteImageView.isHidden = !favorite
     }
     
-}
-
-extension UIImageView {
-    public func imageFromServerURL(urlString: String) {
-        self.image = nil
-        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
-
-            if error != nil {
-                print(error ?? "Error")
-                return
-            }
-            DispatchQueue.main.async(execute: { () -> Void in
-                let image = UIImage(data: data!)
-                self.image = image
-            })
-
-        }).resume()
-    }
 }

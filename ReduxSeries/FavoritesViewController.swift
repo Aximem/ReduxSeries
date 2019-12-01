@@ -12,6 +12,7 @@ import ReSwift
 class FavoritesViewController: UIViewController, StoreSubscriber {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noFavoriteLabel: UILabel!
     
     var series: [Serie] = []
     
@@ -25,10 +26,19 @@ class FavoritesViewController: UIViewController, StoreSubscriber {
         
         store.subscribe(self)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        store.unsubscribe(self)
+    }
 
     func newState(state: AppState) {
+        
         self.series = state.serieState.series.filter { serie in state.favoriteState.favorites.contains(where: { favorite in favorite.idSerie == serie.id }) }
         self.tableView.reloadData()
+        self.noFavoriteLabel.isHidden = !self.series.isEmpty
+        
     }
 }
 

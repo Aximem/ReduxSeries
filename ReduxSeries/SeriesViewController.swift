@@ -28,9 +28,17 @@ class SeriesViewController: UIViewController, StoreSubscriber {
         store.subscribe(self)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        store.unsubscribe(self)
+    }
+    
     func newState(state: AppState) {
+        
         self.series = state.serieState.series
         self.tableView.reloadData()
+        
     }
 }
 

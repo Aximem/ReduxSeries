@@ -176,18 +176,27 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="siq-kn-nMh"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No favorites" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-MC-H7i">
+                                <rect key="frame" x="152" y="439" width="110" height="23"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ni7-LG-W3O" secondAttribute="trailing" id="0El-mm-GpY"/>
                             <constraint firstItem="Ni7-LG-W3O" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="6ZX-b1-h9O"/>
                             <constraint firstItem="Ni7-LG-W3O" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="9ZS-bT-FdU"/>
+                            <constraint firstItem="bOk-MC-H7i" firstAttribute="centerY" secondItem="O1u-W8-tvY" secondAttribute="centerY" id="jG8-Wk-z1J"/>
+                            <constraint firstItem="bOk-MC-H7i" firstAttribute="centerX" secondItem="O1u-W8-tvY" secondAttribute="centerX" id="vhe-H2-xNn"/>
                             <constraint firstAttribute="bottom" secondItem="Ni7-LG-W3O" secondAttribute="bottom" id="wNF-Bx-yg3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <navigationItem key="navigationItem" id="mj0-9Z-ujk"/>
                     <connections>
+                        <outlet property="noFavoriteLabel" destination="bOk-MC-H7i" id="Dut-4r-yMd"/>
                         <outlet property="tableView" destination="Ni7-LG-W3O" id="CBE-U1-Ade"/>
                     </connections>
                 </viewController>

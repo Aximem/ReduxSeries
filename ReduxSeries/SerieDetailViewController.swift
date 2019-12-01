@@ -23,7 +23,7 @@ class SerieDetailViewController: UIViewController, StoreSubscriber {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.backdropImageView?.imageFromServerURL(urlString: urlTDMBImage + (serie.backdropPath ?? ""))
+        self.backdropImageView?.sd_setImage(with: URL(string: urlTDMBImage + (serie.backdropPath ?? "")), placeholderImage: nil)
         self.titleLabel?.text = serie.name
         self.descriptionLabel?.text = serie.overview
         self.activityIndicatorView.isHidden = true
@@ -37,6 +37,12 @@ class SerieDetailViewController: UIViewController, StoreSubscriber {
         store.subscribe(self) { subcription in
             subcription.select { state in state.favoriteState }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        store.unsubscribe(self)
     }
     
     @IBAction func onFavoritePress() {

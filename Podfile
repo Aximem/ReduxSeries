@@ -6,6 +6,8 @@ target 'ReduxSeries' do
   use_frameworks!
 
   pod 'ReSwift'
+  
+  pod 'SDWebImage'
 
   # Pods for ReduxSeries
 
