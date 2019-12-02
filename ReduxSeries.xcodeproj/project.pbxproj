@@ -34,6 +34,8 @@
 		9C4134122392A03A001B45CF /* SerieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4134112392A03A001B45CF /* SerieDetailViewController.swift */; };
 		9C4134152393D74D001B45CF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4134142393D74D001B45CF /* APIService.swift */; };
 		9CC9306523944E7800B184BB /* Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC9306423944E7800B184BB /* Thunk.swift */; };
+		9CC930682395A43F00B184BB /* SerieSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC930672395A43F00B184BB /* SerieSelector.swift */; };
+		9CC9306A2395A44D00B184BB /* FavoriteSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC930692395A44D00B184BB /* FavoriteSelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		9C4134112392A03A001B45CF /* SerieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SerieDetailViewController.swift; path = ReduxSeries/SerieDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		9C4134142393D74D001B45CF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9CC9306423944E7800B184BB /* Thunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
+		9CC930672395A43F00B184BB /* SerieSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieSelector.swift; sourceTree = "<group>"; };
+		9CC930692395A44D00B184BB /* FavoriteSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSelector.swift; sourceTree = "<group>"; };
 		9F0F59BE1FD5FAAFAB3CD154 /* Pods-ReduxSeriesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesUITests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesUITests/Pods-ReduxSeriesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF19C6CC62651795AC3F2C34 /* Pods_ReduxSeriesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxSeriesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D3DB5383BE022E586897C0 /* Pods-ReduxSeriesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSeriesTests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxSeriesTests/Pods-ReduxSeriesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		4567E9C02390287700EC160C /* Redux */ = {
 			isa = PBXGroup;
 			children = (
+				9CC930662395A42900B184BB /* Selectors */,
 				4567E9C32390289C00EC160C /* Reducers */,
 				4567E9C22390288D00EC160C /* States */,
 				4567E9C12390287F00EC160C /* Actions */,
@@ -260,6 +265,15 @@
 				9C4134142393D74D001B45CF /* APIService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9CC930662395A42900B184BB /* Selectors */ = {
+			isa = PBXGroup;
+			children = (
+				9CC930672395A43F00B184BB /* SerieSelector.swift */,
+				9CC930692395A44D00B184BB /* FavoriteSelector.swift */,
+			);
+			path = Selectors;
 			sourceTree = "<group>";
 		};
 		C48ECFDC511AEDD9EC0415D6 /* Frameworks */ = {
@@ -504,6 +518,7 @@
 				4567E9D423902CA200EC160C /* FavoriteAction.swift in Sources */,
 				4567E974239024FE00EC160C /* SeriesViewController.swift in Sources */,
 				4567E970239024FE00EC160C /* AppDelegate.swift in Sources */,
+				9CC9306A2395A44D00B184BB /* FavoriteSelector.swift in Sources */,
 				4529B59A2391742D008CA421 /* AppState.swift in Sources */,
 				9C4134122392A03A001B45CF /* SerieDetailViewController.swift in Sources */,
 				4567E9C8239029ED00EC160C /* Favorite.swift in Sources */,
@@ -512,6 +527,7 @@
 				4529B5A223918C0D008CA421 /* SerieTableViewCell.swift in Sources */,
 				9C4134152393D74D001B45CF /* APIService.swift in Sources */,
 				4567E9C62390299600EC160C /* Serie.swift in Sources */,
+				9CC930682395A43F00B184BB /* SerieSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

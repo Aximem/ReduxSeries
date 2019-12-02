@@ -35,7 +35,7 @@ class FavoritesViewController: UIViewController, StoreSubscriber {
 
     func newState(state: AppState) {
         
-        self.series = state.serieState.series.filter { serie in state.favoriteState.favorites.contains(where: { favorite in favorite.idSerie == serie.id }) }
+        self.series = favoriteSeriesSelector(state)
         self.tableView.reloadData()
         
         self.noFavoriteLabel.isHidden = !self.series.isEmpty
@@ -58,7 +58,7 @@ extension FavoritesViewController : UITableViewDataSource, UITableViewDelegate {
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: serieCellId, for: indexPath) as? SerieTableViewCell {
             
             let serie = self.series[indexPath.row]
-            let isFavorite = store.state.favoriteState.favorites.contains(where: { favorite in favorite.idSerie == serie.id })
+            let isFavorite = isSerieFavoriteSelector(store.state, serie)
             cell.configureWith(serie: serie, favorite: isFavorite)
             
             return cell

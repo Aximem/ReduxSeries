@@ -38,9 +38,9 @@ class SeriesViewController: UIViewController, StoreSubscriber {
     
     func newState(state: AppState) {
         
-        self.activityIndicatorView.isHidden = !state.serieState.loading
+        self.activityIndicatorView.isHidden = !seriesLoadingSelector(state)
         
-        self.series = state.serieState.series
+        self.series = seriesSelector(state)
         self.tableView.reloadData()
         
     }
@@ -61,7 +61,7 @@ extension SeriesViewController : UITableViewDataSource, UITableViewDelegate {
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: serieCellId, for: indexPath) as? SerieTableViewCell {
             
             let serie = self.series[indexPath.row]
-            let isFavorite = store.state.favoriteState.favorites.contains(where: { favorite in favorite.idSerie == serie.id })
+            let isFavorite = isSerieFavoriteSelector(store.state, serie)
             cell.configureWith(serie: serie, favorite: isFavorite)
             
             return cell
