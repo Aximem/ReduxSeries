@@ -15,7 +15,6 @@ target 'ReduxSeries' do
   target 'ReduxSeriesTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'ReSwiftThunk/ExpectThunk'
   end
 
   target 'ReduxSeriesUITests' do

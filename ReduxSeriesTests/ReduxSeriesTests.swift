@@ -8,27 +8,43 @@
 
 import XCTest
 @testable import ReduxSeries
+import ReSwiftThunk
 
 class ReduxSeriesTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testGetSeriesStart() {
+        let action = GetSeriesStartAction()
+        
+        let state = serieReducer(action: action, state: nil)
+        
+        XCTAssert(state.loading == true)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testGetSeriesSuccess() {
+        let action = GetSeriesSuccessAction(series: [
+            Serie(id: 1, name: "Arrow", overview: nil, backdropPath: nil),
+            Serie(id: 2, name: "Supernatural", overview: nil, backdropPath: nil),
+            Serie(id: 3, name: "Gotham", overview: nil, backdropPath: nil),
+        ])
+        
+        let state = serieReducer(action: action, state: nil)
+        
+        XCTAssert(state.loading == false)
+        XCTAssert(state.series.count == 3)
+        XCTAssert(state.series[0].name == "Arrow")
+        XCTAssert(state.series[1].name == "Supernatural")
+        XCTAssert(state.series[2].name == "Gotham")
+        XCTAssert(state.errorMessage == nil)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testGetSeriesFailed() {
+        let action = GetSeriesFailedAction(errorMessage: "Error")
+        
+        let state = serieReducer(action: action, state: nil)
+        
+        XCTAssert(state.loading == false)
+        XCTAssert(state.series.count == 0)
+        XCTAssert(state.errorMessage == "Error")
     }
 
 }
