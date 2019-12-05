@@ -22,6 +22,18 @@ class SeriesViewController: UIViewController, StoreSubscriber {
         super.viewDidLoad()
         self.tableView.separatorColor = UIColor.white
         self.activityIndicatorView.startAnimating()
+        
+        // Get series
+        
+        store.dispatch(GetSeriesStartAction())
+        
+        APIServices.getSeries() { series, errorMessage in
+            if errorMessage != nil {
+                store.dispatch(GetSeriesFailedAction(errorMessage: errorMessage!))
+                return
+            }
+            store.dispatch(GetSeriesSuccessAction(series: series ?? []))
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
